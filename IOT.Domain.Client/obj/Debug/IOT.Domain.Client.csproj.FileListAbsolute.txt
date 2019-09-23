@@ -1,0 +1,12 @@
+C:\Workspace\Kurtman\IOT\IOT.Domain.Client\bin\Debug\IOT.Domain.Client.dll
+C:\Workspace\Kurtman\IOT\IOT.Domain.Client\bin\Debug\IOT.Domain.Client.pdb
+C:\Workspace\Kurtman\IOT\IOT.Domain.Client\obj\Debug\IOT.Domain.Client.csprojAssemblyReference.cache
+C:\Workspace\Kurtman\IOT\IOT.Domain.Client\obj\Debug\IOT.Domain.Client.csproj.CoreCompileInputs.cache
+C:\Workspace\Kurtman\IOT\IOT.Domain.Client\obj\Debug\IOT.Domain.Client.dll
+C:\Workspace\Kurtman\IOT\IOT.Domain.Client\obj\Debug\IOT.Domain.Client.pdb
+C:\Workspace\GIT\IOT\IOT.Domain.Client\obj\Debug\IOT.Domain.Client.csprojAssemblyReference.cache
+C:\Workspace\GIT\IOT\IOT.Domain.Client\obj\Debug\IOT.Domain.Client.csproj.CoreCompileInputs.cache
+C:\Workspace\GIT\IOT\IOT.Domain.Client\obj\Debug\IOT.Domain.Client.dll
+C:\Workspace\GIT\IOT\IOT.Domain.Client\obj\Debug\IOT.Domain.Client.pdb
+C:\Workspace\GIT\IOT\IOT.Domain.Client\bin\Debug\IOT.Domain.Client.dll
+C:\Workspace\GIT\IOT\IOT.Domain.Client\bin\Debug\IOT.Domain.Client.pdb
