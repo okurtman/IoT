@@ -1,0 +1,1204 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home Page - IOT</title>
+
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/18.2.8/css/dx.common.css" />
+
+    <link rel="stylesheet dx-theme"  type="text/css" data-theme="material.teal.light" href="https://cdn3.devexpress.com/jslib/18.2.8/css/dx.light.css" />
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="Scripts/modernizr-2.8.3.js"></script>
+
+
+
+
+</head>
+<body>
+
+    <div class="container body-content">
+
+
+        <div class="row">
+            <div class="form col-sm-4">
+
+                
+
+                <div class="dx-fieldset">
+                    <div class="dx-field">
+                        <div class="dx-field-label">MONITORING MODE</div>
+                        <div class="dx-field-value">
+                            <div id="handler-monitoring"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dx-fieldset">
+                    <div class="dx-field">
+                        <div class="dx-field-label">AUTO MODE</div>
+                        <div class="dx-field-value">
+                            <div id="handler-auto"></div>
+                        </div>
+                    </div>
+                    <div class=""></div>
+                    <div class="dx-field">
+                        <div id="handler-range-slider"></div>
+                    </div>
+                    <div class="dx-field">
+                        <div class="dx-field-label">Minimum nem</div>
+                        <div class="dx-field-value">
+                            <div id="start-value"></div>
+                        </div>
+                    </div>
+                    <div class="dx-field">
+                        <div class="dx-field-label">Maksimum nem</div>
+                        <div class="dx-field-value">
+                            <div id="end-value"></div>
+                        </div>
+                    </div>
+                    <div class="dx-field">
+                        <!--<button type="submit" id="autofarm-button" class="btn btn-success">Sula</button>-->
+                        <div id="autofarm-button"></div>
+                    </div>
+                </div>
+
+                <div class="dx-fieldset">
+                    <div class="dx-field">
+                        <div class="dx-field-label">MANUEL MODE</div>
+                        <div class="dx-field-value">
+                            <div id="disabled"></div>
+                        </div>
+                    </div>
+                    <div class="dx-field">
+                        <div class="dx-field-label">WATER PUMP</div>
+                        <div class="dx-field-value">
+                            <div id="start-water"></div>
+                        </div>
+                    </div>
+                    <div class="dx-field">
+                        <div class="dx-field-label">FERTILIZATION PUMP</div>
+                        <div class="dx-field-value">
+                            <div id="start-fertil"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dx-fieldset">
+                    <div class=" panel-heading">WATERING MODULE</div>
+                    <div class="dx-field">
+                        <div id="water-slider"></div>
+                    </div>
+                    <div class="dx-field">
+                        <div class="dx-field-label">Watering amount:</div>
+                        <div class="dx-field-value">
+                            <div id="water-slider-value"></div>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <div id="progress-button"></div>
+                        <div id="progress"><div id="progressBarStatus"></div></div>
+                    </div>
+                </div>
+
+                <div class="dx-fieldset">
+                    <div class=" panel-heading">FERTIZILATION MODULE</div>
+                    <div class="dx-field">
+                        <div id="fertilization-slider"></div>
+                    </div>
+                    <div class="dx-field">
+                        <div class="dx-field-label">Fertizilator amount</div>
+                        <div class="dx-field-value">
+                            <div id="fertilization-slider-value"></div>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <div id="fertilizationButton"></div>
+                        <div id="progress"><div id="fertilizationStatus"></div></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-8 nopadding">
+                <div class="col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            INSTANT GRAPHS
+                        </div>
+                        <div class="panel-body">
+                            <!--<div id="humidity">0</div>-->
+                            <div id="chart-allData"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-2 col-half-offset">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Air<br>Temperature(°C)
+                        </div>
+                        <div class="panel-body">
+                            <div class="instant" id="temperature">0</div>
+                            <div class="gauge-element" id="temperatureGauge"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-half-offset">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Air<br>Humidity(%)
+                        </div>
+                        <div class="panel-body">
+                            <div class="instant" id="humidity">0</div>
+                            <div class="gauge-element" id="humidityGauge"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-half-offset">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Soil<br>Humidty(%)
+                        </div>
+                        <div class="panel-body">
+                            <div class="instant" id="soilHumidity">0</div>
+                            <div class="gauge-element" id="soilHumidityGauge"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2 col-half-offset">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Water<br>Tank Level(lt)
+                        </div>
+                        <div class="panel-body">
+                            <div class="instant" id="waterLevel">0</div>
+                            <div class="gauge-element" id="waterLevelGauge"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-half-offset">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Fertilization Tank Level
+                        </div>
+                        <div class="panel-body">
+                            <div class="instant" id="fertiLevel">0</div>
+                            <div class="gauge-element" id="fertiLevelGauge"></div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Water Counter
+                        </div>
+                        <div class="panel-body">
+                            <div class="instant" id="totalWater">0</div>
+                            <div id="totalWaterGauge"></div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Fertilizator Counter
+                        </div>
+                        <div class="panel-body">
+                            <div class="instant" id="totalFerti">0</div>
+                            <div id="totalFertiGauge"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <br />
+
+
+        <!--<div class="row">
+            <div class="col-sm-12">
+                <button id="ledOn" type="button" class="btn btn-success" disabled>
+                    Sulamayı Başlat
+                </button>
+                <button id="ledOff" type="button" class="btn btn-danger" disabled>
+                    Sulamayı Durdur
+                </button>
+                <form id="form-water" class="form-inline">
+                    <input type="text" id="litre" class="form-control" placeholder="lt">
+                    <button type="submit" class="btn btn-success">Sula</button>
+                </form>
+            </div>
+        </div>-->
+
+        <br />
+
+        <div class="row">
+            
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Air Temperature(°C)
+                    </div>
+                    <div class="panel-body">
+                        <!--<div id="temperature">0</div>-->
+                        <div id="chart-temperature"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Air Humidity(%)
+                    </div>
+                    <div class="panel-body">
+                        <!--<div id="humidity">0</div>-->
+                        <div id="chart-humidity"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Soil Humidity(%)
+                    </div>
+                    <div class="panel-body">
+                        <!--<div id="soilHumidity">0</div>-->
+                        <div id="chart-soilHumidity"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Su Tank Seviyesi(lt)
+                    </div>
+                    <div class="panel-body">
+                        <!--<div id="waterLevel">0</div>-->
+                        <div id="chart-waterLevel"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Total Spent Water Amount(lt)
+                    </div>
+                    <div class="panel-body">
+                        <div id="totalMiliLitres">0</div>
+                        <div id="chart-totalMiliLitres"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+
+    <script src="Scripts/jquery.signalR-2.4.0.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/18.2.8/js/dx.all.js"></script>
+
+    <script src="http://localhost:1235/signalr/hubs"></script>
+
+    <script type="text/javascript">
+    	var waterStepper = 0;
+        var previousWateredAmount = 0;
+        var wateredAmount = 0;
+        var previousFertiAmount = 0;
+        var fertiAmount = 0;
+
+        $(function () {
+            $('#chart-allData').dxChart({
+                dataSource: [],
+                commonAxisSettings: {
+                    grid: {
+                        visible: false
+                    }
+                },
+                palette: "Soft Blue",
+                argumentAxis: {
+                    argumentType: 'datetime'
+                },
+                valueAxis: {
+                    valueType: 'numeric'
+                },
+                 legend: {
+                    verticalAlignment: "bottom",
+                    horizontalAlignment: "center"
+                },
+                /*series: {
+                    argumentField: 'MessageTime',
+                    valueField: 'TotalMiliLitres',
+                    type: 'line'
+                },*/
+                 series: [
+                    { valueField: "Temperature", name: "Temperature",  argumentField: 'MessageTime',  type: 'line' },
+                    { valueField: "SoilHumidity", name: "Soil Humidity",  argumentField: 'MessageTime',  type: 'line' },
+                    { valueField: "Humidity", name: "Air Humidty",  argumentField: 'MessageTime',  type: 'line' }
+                    /*
+                    ,
+                    { valueField: "RelayStatus", name: "Watering Status",  argumentField: 'MessageTime',  type: 'line' },
+                    { valueField: "TotalMiliLitres", name: "Spent Water Amount",  argumentField: 'MessageTime',  type: 'line' }
+                    */
+                ],
+                zoomAndPan: {
+                    argumentAxis: "both"
+                },
+                export: {
+                    enabled: true
+                },
+                tooltip: {
+                    enabled: true,
+                    customizeTooltip: function (arg) {
+                        return {
+                            text: arg.seriesName + ' : ' + arg.valueText
+                        };
+                    }
+                }
+                
+            });
+
+            $('#chart-temperature').dxChart({
+                dataSource: [],
+                commonAxisSettings: {
+                    grid: {
+                        visible: true
+                    }
+                },
+                argumentAxis: {
+                    argumentType: 'datetime',
+                    valueMarginsEnabled: false,
+                    discreteAxisDivisionMode: "crossLabels",
+                    // axisDivisionFactor: 600
+                    //allowDecimals: falses
+                },
+                valueAxis: {
+                    valueType: 'numeric'
+                },
+                series: {
+                    argumentField: 'MessageTime',
+                    valueField: 'Temperature',
+                    type: 'line'
+                },
+                zoomAndPan: {
+                    argumentAxis: "both"
+                },
+                legend :{
+                 visible: false
+                },
+
+                export: {
+                    enabled: true
+                },
+                tooltip: {
+                    enabled: true,
+                    customizeTooltip: function (arg) {
+                        return {
+                            text: arg.valueText
+                        };
+                    }
+                }
+                
+            });
+            $('#chart-humidity').dxChart({
+                dataSource: [],
+                commonAxisSettings: {
+                    grid: {
+                        visible: true
+                    }
+                },
+                argumentAxis: {
+                    argumentType: 'datetime'
+                },
+                valueAxis: {
+                    valueType: 'numeric'
+                },
+                series: {
+                    argumentField: 'MessageTime',
+                    valueField: 'Humidity',
+                    type: 'line'
+                },
+                zoomAndPan: {
+                    argumentAxis: "both"
+                },
+                legend:{
+                    visible: false
+                },
+                export: {
+                    enabled: true
+                },
+                tooltip: {
+                    enabled: true,
+                    customizeTooltip: function (arg) {
+                        return {
+                            text: '% '+arg.valueText
+                        };
+                    }
+                }
+
+            });
+            $('#chart-waterLevel').dxChart({
+                dataSource: [],
+                commonAxisSettings: {
+                    grid: {
+                        visible: true
+                    }
+                },
+                argumentAxis: {
+                    argumentType: 'datetime'
+                },
+                valueAxis: {
+                    valueType: 'numeric'
+                },
+                series: {
+                    argumentField: 'MessageTime',
+                    valueField: 'WaterLevel',
+                    type: 'line'
+                },
+                zoomAndPan: {
+                    argumentAxis: "both"
+                },
+                legend:{
+                 visible: false
+                },
+                export: {
+                    enabled: true
+                },
+                tooltip: {
+                    enabled: true,
+                    customizeTooltip: function (arg) {
+                        return {
+                            text: arg.valueText
+                        };
+                    }
+                }
+            });
+            
+            var temperatureGauge = $("#temperatureGauge").dxLinearGauge({
+                title: {
+                   text: "Temperature (°C)",
+                   font: {
+                      size: 12
+                   }
+                },
+                geometry: { orientation: "vertical" },
+                scale: {
+                    startValue: -20, 
+                    endValue: 50,
+                    tickInterval: 1
+                },
+                rangeContainer: {
+                    backgroundColor: "none",
+                    ranges: [
+                        { startValue: -20, endValue: 0, color: "#679EC5" },
+                        { startValue: 0, endValue: 30 },
+                        { startValue: 30, endValue: 50, color: "#92000A" }
+                    ]
+                },
+                value: -20
+            }).dxLinearGauge("instance");
+
+            var humidityGauge = $("#humidityGauge").dxLinearGauge({
+                title: {
+                   text: "Air Humidty (%)",
+                   font: {
+                      size: 12
+                   }
+                },
+                geometry: { orientation: "vertical" },
+                scale: {
+                    startValue: 0, 
+                    endValue: 100,
+                    tickInterval: 1
+                },
+                rangeContainer: {
+                    backgroundColor: "none",
+                    ranges: [
+                        { startValue: 0, endValue: 100, color: "#679EC5" }
+                    ]
+                },
+                value: 0
+            }).dxLinearGauge("instance");
+
+            var soilHumidityGauge = $("#soilHumidityGauge").dxLinearGauge({
+                title: {   
+                   text: "Soil Humidity (%)",
+                   font: {
+                      size: 12
+                   }
+                },
+                geometry: { orientation: "vertical" },
+                scale: {
+                    startValue: 0, 
+                    endValue: 100,
+                    tickInterval: 5,
+                },
+                rangeContainer: { backgroundColor: "#CACACA" },
+                valueIndicator: { type: "rhombus", color: "#A4DDED" },
+
+            }).dxLinearGauge("instance");
+                
+
+            var waterLevelGauge = $("#waterLevelGauge").dxLinearGauge({
+                title: {
+                   text: "Water Tank Level (lt)",
+                   font: {
+                      size: 12
+                   }
+                },
+                geometry: { orientation: "vertical" },
+                scale: {
+                    startValue: 0, 
+                    endValue: 20,
+                    tickInterval: 1
+                },
+                rangeContainer: {
+                    backgroundColor: "none",
+                    ranges: [
+                        { startValue: 0, endValue: 5, color: "#92000A" },
+                        { startValue: 5, endValue: 20, color: "#CACACA" }
+                    ]
+                },
+                value: 20
+            }).dxLinearGauge("instance");
+
+            var fertiLevelGauge = $("#fertiLevelGauge").dxLinearGauge({
+                title: {
+                   text: "Fertilization Tank Level (lt)",
+                   font: {
+                      size: 12
+                   }
+                },
+                geometry: { orientation: "vertical" },
+                scale: {
+                    startValue: 0, 
+                    endValue: 20,
+                    tickInterval: 1
+                },
+                rangeContainer: {
+                    backgroundColor: "none",
+                    ranges: [
+                        { startValue: 0, endValue: 5, color: "#92000A" },
+                        { startValue: 5, endValue: 20, color: "#CACACA" }
+                    ]
+                },
+                value: 20
+            }).dxLinearGauge("instance");
+
+             var totalWaterGauge = $("#totalWaterGauge").dxCircularGauge({
+                scale: {
+                    startValue: 0,
+                    endValue: 150,
+                    tickInterval: 1,
+                    label: {
+                        useRangeColors: true
+                    }
+                },
+                rangeContainer: {
+                    palette: "ocean",
+                    ranges: [
+                        { startValue: 50, endValue: 90 },
+                        { startValue: 90, endValue: 130 },
+                        { startValue: 130, endValue: 150 }
+                    ]
+                },
+                title: {
+                    text: "Harcanan Su Miktarı",
+                    font: { size: 12 }
+                },
+                "export": {
+                    enabled: true
+                },
+                value: 0
+            }).dxCircularGauge("instance");
+
+            var totalFertiGauge = $("#totalFertiGauge").dxCircularGauge({
+                scale: {
+                    startValue: 0,
+                    endValue: 50,
+                    tickInterval: 10,
+                    label: {
+                        useRangeColors: true
+                    }
+                },
+                rangeContainer: {
+                    palette: "ocean",
+                    ranges: [
+                        { startValue: 50, endValue: 90 },
+                        { startValue: 90, endValue: 130 },
+                        { startValue: 130, endValue: 150 }
+                    ]
+                },
+                title: {
+                    text: "Harcanan Gübre Miktarı",
+                    font: { size: 12 }
+                },
+                "export": {
+                    enabled: true
+                },
+                value: 0
+            }).dxCircularGauge("instance");
+
+            $('#chart-soilHumidity').dxChart({
+                dataSource: [],
+                commonAxisSettings: {
+                    grid: {
+                        visible: true
+                    }
+                },
+                argumentAxis: {
+                    argumentType: 'datetime'
+                },
+                valueAxis: {
+                    valueType: 'numeric'
+                },
+                series: {
+                    argumentField: 'MessageTime',
+                    valueField: 'SoilHumidity',
+                    type: 'line'
+                },
+                zoomAndPan: {
+                    argumentAxis: "both"
+                },
+                legend:{
+                 visible: false
+                },
+                export: {
+                    enabled: true
+                },
+                tooltip: {
+                    enabled: true,
+                    customizeTooltip: function (arg) {
+                        return {
+                            text: '% '+arg.valueText
+                        };
+                    }
+                }
+            });
+            $('#chart-totalMiliLitres').dxChart({
+                dataSource: [],
+                commonAxisSettings: {
+                    grid: {
+                        visible: true
+                    }
+                },
+                argumentAxis: {
+                    argumentType: 'datetime'
+                },
+                valueAxis: {
+                    valueType: 'numeric'
+                },
+                series: {
+                    argumentField: 'MessageTime',
+                    valueField: 'TotalMiliLitres',
+                    type: 'line'
+                },
+                zoomAndPan: {
+                    argumentAxis: "both"
+                },
+                legend:{
+                 visible: false
+                },
+                export: {
+                    enabled: true
+                },
+                tooltip: {
+                    enabled: true,
+                    customizeTooltip: function (arg) {
+                        return {
+                            text: arg.valueText
+                        };
+                    }
+                }
+                
+            });
+
+             
+            var waterSlider = $("#water-slider").dxSlider({
+                min: 0,
+                max: 20,
+                value: 10,
+                tooltip: {
+                    enabled: true,
+                    format: function (value) {
+                        return value + " lt";
+                    },
+                    showMode: "always", 
+                    position: "bottom"
+                },
+                onValueChanged: function(data) {
+                    waterSliderValue.option("value", data.value);
+                }
+            }).dxSlider("instance");
+            
+            var waterSliderValue = $("#water-slider-value").dxNumberBox({
+                value: 10,
+                min: 0,
+                max: 20,
+                showSpinButtons: true,
+                onValueChanged: function(data) {
+                    waterSlider.option("value", data.value);
+                }
+            }).dxNumberBox("instance");
+
+
+            
+            var seconds = 10,
+                inProgress = false,
+                intervalId;
+
+            var progressBarStatus = $("#progressBarStatus").dxProgressBar({
+                min: 0,
+                max: 100,
+                width: "100%",
+                statusFormat:  function(value) { 
+                    return "Watering process: " + value * 100 + "%"; 
+                },
+                onComplete: function(e){
+                    inProgress = false;
+                    waterSlider.option("disabled", false);
+                    waterSlider.option("tooltip.enabled", true);
+                    waterSliderValue.option("disabled", false);
+
+                    progressButton.option("text", "Restart progress");
+                    e.element.addClass("complete");
+                    progressBarStatus.option("value", 0);
+                    waterSlider.option("value", 0);
+                    waterSliderValue.option("value", 0);
+                }
+            }).dxProgressBar("instance");
+            
+            var progressButton = $("#progress-button").dxButton({
+                text: "Start Watering",
+                width: 160,
+                onClick: function() {
+                    $("#progressBarStatus").removeClass("complete");
+                    if (inProgress) {
+                        waterSlider.option("disabled", false);
+                        waterSlider.option("tooltip.enabled", true);
+                        waterSliderValue.option("disabled", false);
+
+                        progressButton.option("text", "Contiue");
+                        clearInterval(intervalId);
+                        iotHub.server.send('Command/watering?state=false\n');
+                        progressBarStatus.option("value", 0);
+
+                    } else {
+                        waterSlider.option("disabled", true);
+                        waterSlider.option("tooltip.enabled", false);
+                        waterSliderValue.option("disabled", true);
+                        
+                        previousWateredAmount = $('#totalMiliLitres').text();
+
+                        var litre = waterSlider.option("value");
+                        console.log(litre);
+                        DevExpress.ui.notify( "Sistem " + litre + " litre sulama yapmaya başladı");
+                        iotHub.server.send('Command/watering?state=true&amount='+litre+'\n');
+
+                        progressButton.option("text", "Stop watering");
+                        setCurrentStatus();
+                        intervalId = setInterval(timer, 1000);
+                    }
+                    inProgress = !inProgress;
+                }
+            }).dxButton("instance");
+            
+            function setCurrentStatus() {
+                
+
+                var waterAmount = waterSlider.option("value");
+                
+                
+                var instantAmount = $('#totalMiliLitres').text();
+                wateredAmount = instantAmount - previousWateredAmount;
+
+                progressBarStatus.option("value", (wateredAmount * 100) / waterAmount);
+            }
+                
+            function timer() {
+                waterStepper = waterSlider.option("value") - wateredAmount;
+                
+                //var waterStepper = litre - $('#totalMiliLitres').text();
+                console.log(waterStepper);
+                setCurrentStatus();
+                if(waterStepper === 0) {
+                    //iotHub.server.send('Command/watering?state=false\n');
+                    clearInterval(intervalId);
+                    inProgress == false;
+                    //waterStepper = 10;
+                    return;
+
+                    
+                }
+            }
+
+            var fertilizationSlider = $("#fertilization-slider").dxSlider({
+                min: 0,
+                max: 20,
+                value: 10,
+                tooltip: {
+                    enabled: true,
+                    format: function (value) {
+                        return value + " lt";
+                    },
+                    showMode: "always", 
+                    position: "bottom"
+                },
+                onValueChanged: function(data) {
+                    fertilizationSliderValue.option("value", data.value);
+                }
+            }).dxSlider("instance");
+            
+            var fertilizationSliderValue = $("#fertilization-slider-value").dxNumberBox({
+                value: 10,
+                min: 0,
+                max: 20,
+                showSpinButtons: true,
+                onValueChanged: function(data) {
+                    fertilizationSlider.option("value", data.value);
+                }
+            }).dxNumberBox("instance");
+
+
+            
+            var secondsFerti = 10,
+            inProgressFerti = false,
+            intervalIdFerti;
+
+            var fertilizationStatus = $("#fertilizationStatus").dxProgressBar({
+                min: 0,
+                max: 100,
+                width: "100%",
+                statusFormat:  function(value) { 
+                    return "Fertilization process: " + value * 100 + "%"; 
+                },
+                onComplete: function(e){
+                    inProgressFerti = false;
+                    fertilizationSlider.option("disabled", false);
+                    fertilizationSlider.option("tooltip.enabled", true);
+                    fertilizationSliderValue.option("disabled", false);
+
+                    fertilizationButton.option("text", "Restart progress");
+                    e.element.addClass("complete");
+                }
+            }).dxProgressBar("instance");
+            
+            var fertilizationButton = $("#fertilizationButton").dxButton({
+                text: "Start Fertilization",
+                width: 160,
+                onClick: function() {
+                    $("#fertilizationStatus").removeClass("complete");
+                    if (inProgressFerti) {
+                        fertilizationSlider.option("disabled", false);
+                        fertilizationSlider.option("tooltip.enabled", true);
+                        fertilizationSliderValue.option("disabled", false);
+
+                        fertilizationButton.option("text", "Contiue Fertilization");
+                        clearInterval(intervalIdFerti);
+                        iotHub.server.send('Command/fertilization?state=false\n');
+                        fertilizationStatus.option("value", 0);
+
+                    } else {
+                        fertilizationSlider.option("disabled", true);
+                        fertilizationSlider.option("tooltip.enabled", false);
+                        fertilizationSliderValue.option("disabled", true);
+                        
+                        previousFertiAmount = $('#totalFerti').text();
+
+                        var litreFerti = fertilizationSlider.option("value");
+                        console.log(litreFerti);
+                        DevExpress.ui.notify( "Sistem " + litreFerti + " litre gübreleme yapmaya başladı");
+                        iotHub.server.send('Command/fertilization?state=true&amount='+litreFerti+'\n');
+
+                        fertilizationButton.option("text", "Stop Fertilization");
+                        setCurrentStatusFerti();
+                        intervalIdFerti = setInterval(timerFerti, 1000);
+                    }
+                    inProgressFerti = !inProgressFerti;
+                }
+            }).dxButton("instance");
+            
+            function setCurrentStatusFerti() {
+                
+
+                var fertiAmount = fertilizationSlider.option("value");
+                
+                
+                var instantFertiAmount = $('#totalFerti').text();
+                fertilizedAmount = instantFertiAmount - previousFertiAmount;
+
+                fertilizationStatus.option("value", (fertilizedAmount * 100) / fertiAmount);
+            }
+                
+            function timerFerti() {
+                var fertiStepper = fertilizationSlider.option("value") - fertilizedAmount;
+                
+                //var waterStepper = litre - $('#totalMiliLitres').text();
+                console.log(fertiStepper);
+                setCurrentStatusFerti();
+                if(fertiStepper === 0) {
+                    //iotHub.server.send('Command/watering?state=false\n');
+                    clearInterval(intervalIdFerti);
+                    //waterStepper = 10;
+                    return;
+
+                    
+                }
+            }
+
+
+            var handlerRangeSlider = $("#handler-range-slider").dxRangeSlider({
+                min: 0,
+                max: 100,
+                start: 10,
+                end: 30,
+                disabled: true,
+                label: {
+                    visible: true,
+                    format: function(value) {
+                        return value + "%";
+                    },
+                    position: "top"
+                },
+                tooltip: {
+                    enabled: true,
+                    format: function (value) {
+                        return value + "%";
+                    },
+                    showMode: "onHover", 
+                    position: "bottom"
+                },
+                onValueChanged: function(data){
+                    startValue.option("value", data.start);
+                    endValue.option("value", data.end);
+
+                }
+            }).dxRangeSlider("instance");
+            
+            var startValue = $("#start-value").dxNumberBox({
+                value: 10,
+                min: 0,
+                max: 100,
+                disabled: true,
+                showSpinButtons: true,
+                onValueChanged: function(data) {
+                    handlerRangeSlider.option("start", data.value);
+                    //iotHub.server.send(data.value);
+                }
+            }).dxNumberBox("instance");
+            
+            var endValue = $("#end-value").dxNumberBox({
+                value: 90,
+                min: 0,
+                max: 100,
+                disabled: true,
+                showSpinButtons: true,
+                onValueChanged: function(data) {
+                    handlerRangeSlider.option("end", data.value);
+                }
+            }).dxNumberBox("instance");
+
+            var autoFarmButton = $("#autofarm-button").dxButton({
+                text: "Start AutoFarm",
+                width: 200,
+                onClick: function() {
+                    $("#progressBarStatus").removeClass("complete");
+                    if (inProgress) {
+                        iotHub.server.send('Command/watering?state=false\n');
+
+                    } else {
+                        
+                        minHumidity = startValue.option("value");
+                        maxHumidity = endValue.option("value");
+                        
+                        //DevExpress.ui.notify( "Sistem " + litre + " litre sulama yapmaya başladı");
+                        iotHub.server.send('Command/autoFarmer?state=true&min='+minHumidity+'&max='+maxHumidity+'\n');
+
+                        autoFarmButton.option("text", "AutoFarm'ı Durdur");
+                    }
+                }
+            }).dxButton("instance");
+
+            $("#manuel-mode").dxSwitch({
+                value: true
+                //iotHub.server.send('açkapa');
+
+            });
+
+             $("#start-water").dxSwitch({
+                value: false
+                //iotHub.server.send('açkapa');
+
+            });
+
+            $("#start-fertil").dxSwitch({
+                value: false
+                //iotHub.server.send('açkapa');
+
+            });
+            
+
+            
+            
+
+                $("#handler-monitoring").dxSwitch({
+                    value : true,
+                    onValueChanged: function(data) {
+                        disabledSwitch.option("value", data.previousValue);
+                        iotHub.server.send("Command/monitoring?state="+data.value+'\n');
+                    }
+                });
+
+                $("#handler-auto").dxSwitch({
+                    onValueChanged: function(data) {
+
+                        disabledSwitch.option("value", data.previousValue);
+                        disabledWater.option("disabled", data.value);
+                        disabledFerti.option("disabled", data.value);
+                        //handlerRangeSlider.option("disabled", data.value);
+                        startValue.option("disabled", 1 - data.value);
+                        endValue.option("disabled", 1 - data.value);
+                        handlerRangeSlider.option("disabled", 1 - data.value);
+
+                        iotHub.server.send("Command/autoFarmer?state="+data.value+"\n");
+                        
+                        //console.log("Command/autoFarmer?state="+data.value+'\n');
+                    }
+                });
+
+                $("#start-water").dxSwitch({
+                    onValueChanged: function(data) {
+                        disabledFerti.option("disabled", data.value);
+                        //console.log("Command/Watering/"+data.value);
+                        iotHub.server.send("Command/watering?state="+data.value+"\n");
+                    }
+                });
+                 $("#start-fertil").dxSwitch({
+                    onValueChanged: function(data) {
+                        disabledWater.option("disabled", data.value);
+                        //console.log("Command/Fertilization/"+data.value);
+                        iotHub.server.send("Command/fertilization?state="+data.value+"\n");
+                    }
+                });
+
+                var disabledSwitch = $("#disabled").dxSwitch({
+                    value:  true,
+                    disabled: true
+                }).dxSwitch("instance");
+
+                var disabledWater = $("#start-water").dxSwitch({
+                }).dxSwitch("instance");
+
+                var disabledFerti = $("#start-fertil").dxSwitch({
+                }).dxSwitch("instance");
+
+
+
+
+            var iotHub = $.connection.iotHub;
+            $.connection.hub.url = 'http://localhost:1235/signalr';
+            iotHub.client.addMessage = function (msg) {
+                console.log(msg);
+            };
+            iotHub.client.onConnected = function () {
+                //$('#ledOn').prop('disabled', false);
+                //$('#ledOff').prop('disabled', false);
+            }
+            iotHub.client.onDisconnected = function () {
+                //$('#ledOn').prop('disabled', true);
+                //$('#ledOff').prop('disabled', true);
+            }
+            iotHub.client.onMessageReceived = function (msg) {
+                $('#temperature').html(parseFloat(msg['Temperature']).toFixed(2));
+                $('#humidity').html(parseFloat(msg['Humidity']).toFixed(2));
+                $('#waterLevel').html(parseFloat(msg['WaterLevel']).toFixed(2));
+                $('#soilHumidity').html(parseInt(msg['SoilHumidity']).toString());
+                $('#totalMiliLitres').html(parseFloat(msg['TotalMiliLitres']).toFixed(2));
+                $('#totalWater').html(parseFloat(msg['TotalMiliLitres']).toFixed(2));
+                $('#fertiLevel').html(parseFloat(msg['FertiLevel']).toFixed(2));
+                $('#totalFerti').html(parseFloat(msg['TotalFerti']).toFixed(2));
+ 
+
+                temperatureGauge.option("value", msg['Temperature']);
+                humidityGauge.option("value", msg['Humidity']);
+                soilHumidityGauge.option("value", msg['SoilHumidity']);
+                waterLevelGauge.option("value", msg['WaterLevel']);
+                totalWaterGauge.option("value", msg['TotalMiliLitres']);
+                fertiLevelGauge.option("value", msg['FertiLevel']);
+                totalFertiGauge.option("value", msg['TotalFerti']);
+
+
+                //FertiLevel":23.3,"TotalFerti":-3.3,"FertiStatus":0,"RelayStatus":0,"MessageType":1,"Cont
+
+                /*if (msg['RelayStatus']) {
+                    $('#ledOn').prop('disabled', true);
+                    $('#ledOff').prop('disabled', false);
+                } else {
+                    $('#ledOn').prop('disabled', false);
+                    $('#ledOff').prop('disabled', true);
+                }*/
+
+                /*if (msg['RelayStatus'] == 0 && inProgress == true) {
+                   	waterStepper = 0;
+                }*/
+
+                if (msg['SoilHumidity'] <= 20) {
+                    DevExpress.ui.notify( "Nem istenen değerin altında! Sulama tavsiyesi");
+                }
+                
+
+                $('#chart-temperature').dxChart('getDataSource').store().push([{ type: "insert", data: msg }]);
+                $('#chart-humidity').dxChart('getDataSource').store().push([{ type: "insert", data: msg }]);
+                $('#chart-waterLevel').dxChart('getDataSource').store().push([{ type: "insert", data: msg }]);
+                $('#chart-soilHumidity').dxChart('getDataSource').store().push([{ type: "insert", data: msg }]);
+                $('#chart-totalMiliLitres').dxChart('getDataSource').store().push([{ type: "insert", data: msg }]);
+                $('#chart-allData').dxChart('getDataSource').store().push([{ type: "insert", data: msg }]);
+                
+                
+            }
+            $.connection.hub.start().done(function () {
+                console.log("Connected, transport = " + $.connection.hub.transport.name);
+                
+                /*$('#ledOn').click(function () {
+                    $('#ledOn').prop('disabled', true);
+                    iotHub.server.send('Command/Led=on');
+                });
+                $('#ledOff').click(function () {
+                    $('#ledOff').prop('disabled', true);
+                    iotHub.server.send('Command/Led=off');
+                });*/
+                
+
+
+                iotHub.server.getDailyReport().done(function (data) {
+                    console.log(data);
+                    
+                    $('#chart-temperature').dxChart('option', 'dataSource', data);
+                    $('#chart-humidity').dxChart('option', 'dataSource', data);
+                    $('#chart-soilHumidity').dxChart('option', 'dataSource', data);
+                    $('#chart-waterLevel').dxChart('option', 'dataSource', data);
+                    $('#chart-totalMiliLitres').dxChart('option', 'dataSource', data);
+                    
+                    //console.log(data);
+                });
+            })
+        });
+    </script>
+
+</body>
+</html>

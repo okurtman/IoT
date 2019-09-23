@@ -1,0 +1,86 @@
+
+
+.custom-height-slider {
+    height: 75px;
+}
+
+.dx-field > .dx-rangeslider {
+    flex: 1;
+}
+
+.custom-height-slider {
+    height: 75px;
+}
+
+.dx-field .dx-slider {
+    flex: 1;
+}
+
+.dx-fieldset {
+    margin: 0px 0px 20px 0px;
+    padding: 15px 30px;
+    background: #FFFFFF;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.dx-field-label{
+    width: 75%;
+}
+.dx-field-value:not(.dx-switch):not(.dx-checkbox):not(.dx-button), .dx-field-value-static{
+    width: 25%;
+}
+.panel-default {
+  border: none;
+  border-radius: 0px;
+   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+}
+.dx-slider{
+    margin-bottom: 25px;
+}
+.nopadding{
+   
+    padding-right: 0px !important;
+     padding-left: 0px !important;
+}
+.instant{
+
+    font-size: 22px;
+    text-align: right;
+    padding: 10px 0px;
+
+}
+.dx-fieldset-header{
+
+}
+.panel-heading{
+    font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Verdana, sans-serif;
+}
+.dx-fieldset .panel-heading{
+    padding: 10px 0px 72px 0px;
+}
+/*.dx-switch.dx-state-readonly .dx-switch-handle:before, .dx-switch.dx-state-disabled .dx-switch-handle:before{
+	background-color: #009688;
+}
+.dx-switch.dx-state-readonly .dx-switch-container:before, .dx-switch.dx-state-disabled .dx-switch-container:before {
+     background-color: rgba(0, 150, 136, 0.5)
+}*/
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 120px;
+}
+
+.buttons > div {
+    flex-basis: 120px;
+    height: 50px;
+}
+.dx-button{
+    float: right;
+    margin: 10px 0px 50px 0px;
+}
+
+@media only screen and (min-width: 960px) {
+  .col-half-offset{
+       width: 20%;
+    }
+}
